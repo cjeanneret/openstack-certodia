@@ -1,0 +1,5 @@
+[delorean-pike-testing]
+name=dlrn-pike-testing
+baseurl=https://buildlogs.centos.org/centos/7/cloud/$basearch/openstack-pike/
+enabled=1
+gpgcheck=0

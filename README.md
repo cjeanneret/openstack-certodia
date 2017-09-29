@@ -49,6 +49,19 @@ Lately, [FreeIPA](http://www.freeipa.org/page/Main_Page) has added a new service
 on Custodia. Thus, if you have a FreeIPA running in your infrastructure, you can use it as a backend
 in order to store the secrets you want to share.
 
+## Container vs Baremetal
+Starting Pike, TripleO pushes container-based services - certodia supports that, of course, and provides a Dockerfile in order
+to build a container.
+
+In order to ensure it's working, you'll need to share some volumes between containers, especially:
+
+  - HAProxy socket (in admin) (rw by certodia)
+  - HAProxy certificate directory (rw by certodia)
+  - Horizon httpd root directory (rw by certodia)
+  - Docker socket /var/run/docker.sock (rw by certodia)
+
+For Baremetal (deprecated), nothing more than running the script with proper configuration is needed.
+
 ## Process
 ### Install certbot
 We will install certbot directly from EPEL, activating that repository and configuring it
